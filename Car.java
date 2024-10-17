@@ -46,7 +46,10 @@ public class Car {
    * @return true if the passenger was added, false otherwise
    */
   public boolean addPassenger(Passenger p) {
-    if (passengerList.size() < maxCapacity) {
+    if (passengerList.contains(p)) {
+      System.out.println("This passenger is already on board.");
+      return false;
+    } else if (passengerList.size() < maxCapacity) {
       passengerList.add(p);
       return true;
     } else if (passengerList.size() == maxCapacity) {
